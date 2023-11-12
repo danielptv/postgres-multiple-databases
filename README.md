@@ -1,8 +1,38 @@
 <h1 align="center">docker-postgres-multiple-databases 👑</h1>
 
-**Use multiple databases with the official [PostgreSQL Docker Image](https://hub.docker.com/_/postgres/).**
+<p align="center">
+    <img alt="Deployment status" src="https://img.shields.io/github/actions/workflow/status/danielptv/docker-postgres-multiple-databases/dockerhub-deployment.yml?label=Deployment">
+    <img alt="Docker Image Version (latest semver)" src="https://img.shields.io/docker/v/danielptv/postgres-multiple-databases">
+    <a href="https://github.com/danielptv/docker-postgres-multiple-databases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+</p>
+
+<p align="center">Use multiple databases with the official <a href="https://hub.docker.com/_/postgres/">PostgreSQL Docker Image</a>.</p>
 
 ## How To Use 💡
+
+### Pull from Docker Hub
+
+***postgres-multiple-databases*** is available on [Docker Hub](https://hub.docker.com/r/danielptv/postgres-multiple-databases).
+You can use it with the same tags as the official PostgreSQL Docker image.
+
+```bash
+docker pull danielptv/postgres-multiple-databases
+```
+
+### Build custom image
+
+Alternatively, you can clone the repository and build a custom image using the provided `Dockerfile`.
+
+```bash
+git clone https://github.com/danielptv/docker-postgres-multiple-databases.git
+cd docker-postgres-multiple-databases
+docker build --tag <CUSTOM_TAG> --build-args="POSTGRES_TAG=<POSTGRES_TAG>"
+```
+
+Replace `<CUSTOM_TAG>` with your desired image tag and `<POSTGRES_TAG>` with the tag you want to use for the PostgreSQL base image.
+If omitted, `<POSTGRES_TAG>` will default to `latest`.
+
+## How To Configure ⚙️
 
 This repository extends the official PostgreSQL Docker Image by adding an additional environment variable `POSTGRES_MULTIPLE_DATABASES`.
 
@@ -61,3 +91,7 @@ postgres:
 ```
 
 Missing usernames and passwords will default to the values of `POSTGRES_USER` and `POSTGRES_PASSWORD`.
+
+---
+
+The repository is maintained at [docker-postgres-multiple-databases](https://github.com/danielptv/docker-postgres-multiple-databases).
