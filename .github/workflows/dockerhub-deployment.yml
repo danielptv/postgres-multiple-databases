@@ -1,0 +1,40 @@
+name: Docker Hub Deployment
+on:
+  workflow_dispatch: {}
+jobs:
+  get_versions:
+    name: Get Versions
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.get_versions.outputs.matrix }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Get PostgreSQL Versions 
+      id: get_versions
+      run: echo "matrix=$(bash get-postgres-versions.sh)" >> "$GITHUB_OUTPUT"
+  push_images:
+    name: Push Images
+    needs: get_versions
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:  
+        version: ${{ fromJson(needs.get_versions.outputs.matrix).versions }}
+    steps:
+    - run: echo "Publishing danielptv/postgres-multiple-databases:${{ matrix.version }}"
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and Push Docker Image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        build-args:
+          POSTGRES_TAG=${{ matrix.version }}
+        push: true
+        tags: danielptv/postgres-multiple-databases:${{ matrix.version }}

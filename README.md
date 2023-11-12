@@ -8,7 +8,7 @@ This repository extends the official PostgreSQL Docker Image by adding an additi
 
 Additional databases can be passed as a ***comma-separated list*** in different formats:
 
-### Database, username and password (`database:username:password`):
+### Database, username and password (`database:username:password`)
 
 ```yaml
 postgres:
