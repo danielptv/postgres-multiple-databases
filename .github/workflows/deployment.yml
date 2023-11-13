@@ -1,8 +1,10 @@
-name: Docker Hub Deployment
+name: Deployment
 on:
   schedule:
     - cron: '0 0 * * 1'
   workflow_dispatch: {}
+permissions:
+  packages: write
 jobs:
   get_versions:
     name: Get Versions
@@ -23,7 +25,7 @@ jobs:
       matrix:  
         version: ${{ fromJson(needs.get_versions.outputs.matrix).versions }}
     steps:
-    - run: echo "Publishing danielptv/postgres-multiple-databases:${{ matrix.version }}"
+    - run: echo "Publishing danielptv/postgres-multiple-databases:${{ matrix.version }} to Docker Hub and GitHub Container Registry"
     - name: Checkout
       uses: actions/checkout@v4
     - name: Log in to Docker Hub
@@ -31,6 +33,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v5
       with:
@@ -39,4 +47,6 @@ jobs:
         build-args:
           POSTGRES_TAG=${{ matrix.version }}
         push: true
-        tags: danielptv/postgres-multiple-databases:${{ matrix.version }}
+        tags: |
+          danielptv/postgres-multiple-databases:${{ matrix.version }}
+          ghcr.io/danielptv/postgres-multiple-databases:${{ matrix.version }}
