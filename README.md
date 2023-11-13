@@ -1,9 +1,10 @@
 <h1 align="center">postgres-multiple-databases 👑</h1>
 
 <p align="center">
-    <img alt="Deployment status" src="https://img.shields.io/github/actions/workflow/status/danielptv/postgres-multiple-databases/deployment.yml?label=Deployment">
-    <img alt="Docker Image Version (latest semver)" src="https://img.shields.io/docker/v/danielptv/postgres-multiple-databases">
-    <a href="https://github.com/danielptv/postgres-multiple-databases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+    <img alt="Deployment status" src="https://img.shields.io/github/actions/workflow/status/danielptv/postgres-multiple-databases/deployment.yml?label=Deployment&logo=github">
+    <img alt="Docker Image Version (latest semver)" src="https://img.shields.io/docker/v/danielptv/postgres-multiple-databases?logo=docker&label=Latest%20Version">
+    <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/danielptv/postgres-multiple-databases?label=Docker%20Pulls&logo=docker">
+    <a href="https://github.com/danielptv/postgres-multiple-databases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=github"></a>
 </p>
 
 <p align="center">Use multiple databases with the official <a href="https://hub.docker.com/_/postgres/">PostgreSQL Docker Image</a>.</p>
