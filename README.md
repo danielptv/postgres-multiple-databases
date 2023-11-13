@@ -16,7 +16,16 @@
 You can use it with the same tags as the official PostgreSQL Docker image.
 
 ```bash
-docker pull danielptv/postgres-multiple-databases
+docker pull danielptv/postgres-multiple-databases:latest
+```
+
+### Pull from GitHub Container Registry
+
+***postgres-multiple-databases*** is available on the [GitHub Container Registry](https://github.com/danielptv/postgres-multiple-databases/pkgs/container/postgres-multiple-databases).
+You can use it with the same tags as the official PostgreSQL Docker image.
+
+```bash
+docker pull ghcr.io/danielptv/postgres-multiple-databases:latest
 ```
 
 ### Build custom image
