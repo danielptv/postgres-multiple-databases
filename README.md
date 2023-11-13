@@ -1,9 +1,9 @@
-<h1 align="center">docker-postgres-multiple-databases 👑</h1>
+<h1 align="center">postgres-multiple-databases 👑</h1>
 
 <p align="center">
-    <img alt="Deployment status" src="https://img.shields.io/github/actions/workflow/status/danielptv/docker-postgres-multiple-databases/dockerhub-deployment.yml?label=Deployment">
+    <img alt="Deployment status" src="https://img.shields.io/github/actions/workflow/status/danielptv/postgres-multiple-databases/deployment.yml?label=Deployment">
     <img alt="Docker Image Version (latest semver)" src="https://img.shields.io/docker/v/danielptv/postgres-multiple-databases">
-    <a href="https://github.com/danielptv/docker-postgres-multiple-databases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+    <a href="https://github.com/danielptv/postgres-multiple-databases/blob/main/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
 </p>
 
 <p align="center">Use multiple databases with the official <a href="https://hub.docker.com/_/postgres/">PostgreSQL Docker Image</a>.</p>
@@ -24,8 +24,8 @@ docker pull danielptv/postgres-multiple-databases
 Alternatively, you can clone the repository and build a custom image using the provided `Dockerfile`.
 
 ```bash
-git clone https://github.com/danielptv/docker-postgres-multiple-databases.git
-cd docker-postgres-multiple-databases
+git clone https://github.com/danielptv/postgres-multiple-databases.git
+cd postgres-multiple-databases
 docker build --tag <CUSTOM_TAG> --build-args="POSTGRES_TAG=<POSTGRES_TAG>"
 ```
 
@@ -94,4 +94,4 @@ Missing usernames and passwords will default to the values of `POSTGRES_USER` an
 
 ---
 
-The repository is maintained at [docker-postgres-multiple-databases](https://github.com/danielptv/docker-postgres-multiple-databases).
+The repository is maintained at [postgres-multiple-databases](https://github.com/danielptv/postgres-multiple-databases).
